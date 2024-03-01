@@ -14,13 +14,16 @@ export default {
 
 <style scoped>
 .returnHome{
+  position:sticky;
+  top: 0px;
+  width: 100%;
   padding: 0px;
   background-color: transparent;
-  background-color: rgba(63, 171, 249, 0.1);
   display:flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
   
 }
 #linkHome{

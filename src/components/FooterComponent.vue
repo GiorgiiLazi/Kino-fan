@@ -17,10 +17,11 @@ data() {
 <style scoped>
 footer{
   padding: 0px;
+  display: block;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute; 
+  position: fixed; 
   bottom: 0; 
   left: 0;
   width: 100%;
@@ -37,6 +38,11 @@ footer div{
   margin: 0px;
   color:rgb(0, 216, 0);
   margin: 0px 10px;
+}
+@media only screen and (max-width: 600px ){
+  footer {
+    display: none;
+  }
 }
 
 

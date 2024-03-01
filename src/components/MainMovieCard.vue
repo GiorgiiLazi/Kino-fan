@@ -24,36 +24,54 @@ export default {
 
 <style scoped>
 .main-movie-card {
+  display: block;
   position: relative;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  
   
 }
 .featured-img {
-  display: flex;
   display: block;
-  height: 500px;
-  width: 100%;
-  object-fit:cover;
-  
-  
-
+  max-width: 300px;
   position: relative;
   z-index: 0;
 }
 .detail {
-  position: absolute;
-  align-content: end;
-  left: 0;
-  bottom: 0px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 16px;
+  padding: 10px;
   z-index: 1;
   color:rgb(0, 216, 0);
-  width: 100%;
+  max-width: 280px;
   font-size: 20px;
   
 }
 .detail p{
   color: white
+}
+@media only screen and (max-width: 600px ){
+  .detail {
+    position: absolute;
+    bottom: 0px;
+  }
+  .featured-img {
+  max-width: 100%;;
+  height: 500px;
+  width: 100%;
+  padding: 0;
+  }
+  .detail {
+  max-width: 100%;
+  font-size: 20px;
+  }
 }
 
 
