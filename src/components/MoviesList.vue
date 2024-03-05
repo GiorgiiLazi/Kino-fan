@@ -1,6 +1,9 @@
 <template>
-  <div class="movies-list">
-    <div v-for="movieItem in movieList" class="movie" :key="movieItem.imdbID">
+  <transition-group 
+  tag='ul'
+  name="list" 
+  class="movies-list">
+    <li v-for="movieItem in movieList" class="movie" :key="movieItem.imdbID">
       <router-link 
       :to="'/movie/' + movieItem.imdbID"
       class="movie-link">
@@ -14,8 +17,8 @@
       </div>
       </router-link>
       
-    </div>
-  </div>
+    </li>
+  </transition-group>
 </template>
 
 <script>
@@ -39,6 +42,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin: 0px 10px;
+  list-style: none;
 }
 .movie{
   max-width: 50%;
@@ -102,6 +106,20 @@ text-decoration: none;
   object-fit: cover
   }
   
+}
+
+/* list transitions */
+
+.list-enter-from{
+  opacity: 0;
+  transform: scale(0.6);
+}
+.list-enter-to{
+  opacity: 1;
+  transform: scale(1)
+}
+.list-enter-active{
+  transition: all 0.8s ease
 }
 
 

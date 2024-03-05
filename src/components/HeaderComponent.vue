@@ -1,9 +1,9 @@
 <template>
-<header class="returnHome">
+<transition tag="header" name="header" appear class="returnHome">
   <router-link id="linkHome" to="/">
     <span>Kino</span>Fan
   </router-link>
-</header>
+</transition>
 </template>
 
 <script>
@@ -38,6 +38,19 @@ export default {
 #linkHome span{
   font-size: bolder;
   color:rgb(0, 216, 0)
+}
+.header-enter-from{
+  opacity: 0;
+  transform: scale(0.5);
+  transform: translateX(200px)
+}
+.header-enter-to{
+  opacity: 1;
+  transform: scale(1);
+  transform: translateX(0)
+}
+.header-enter-active{
+ transition: all 2s ease
 }
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="main-movie-card">
+  <transition tag='div' name="card" appear class="main-movie-card">
       <router-link :to="'/movie/' + 'tt2560078/'">
       <img
         class="featured-img"
@@ -14,7 +14,7 @@
         </p>
       </div>
     </router-link>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -80,6 +80,20 @@ export default {
   max-width: 100%;
   font-size: 20px;
   }
+}
+
+.card-enter-from{
+  opacity: 0;
+  transform: scale(0.4);
+  transform: translateY(-300px)
+}
+.card-enter-to{
+  opacity: 1;
+  transform: scale(1);
+  transform: translateY(0px)
+}
+.card-enter-active{
+  transition: all 2s ease
 }
 
 

@@ -1,27 +1,32 @@
 <template>
   <div class="movie-detail">
     <header>
-      <div>
-        <h2 class="movie-title">{{ movie.Title }}</h2>
-        <h3 class="release">{{ movie.Released }}</h3>
-      </div>
-      <div class="rating-box">
-        <p>IMDb Rating</p>
+      <transition name="title" appear>
+        <div>
+          <h2 class="movie-title">{{ movie.Title }}</h2>
+          <h3 class="release">{{ movie.Released }}</h3>
+        </div>
+      </transition>
+      <transition name='rating' appear class="rating-box">
+        <div>
+          <p class="imdb">IMDb Rating</p>
 
         <div class='ratings'>
           <p>
             <span class="material-symbols-outlined"> star_rate_half </span>
-            {{ movie.imdbRating }}/10
           </p>
-          <p class="votes">{{ movie.imdbVotes }} votes</p>
+          <p class="votes">{{ movie.imdbRating }}/10 <br>
+          {{ movie.imdbVotes }} votes</p>
         </div>
-      </div>
+        </div>
+        
+      </transition>
     </header>
 
     <main>
-      <div class="poster">
+      <transition appear name="poster" class="poster">
         <img :src="movie.Poster" alt="poster" />
-      </div>
+      </transition>
       <div class="genre">Genre: {{ movie.Genre }}</div>
       <div class="plot">{{ movie.Plot }}</div>
       <hr />
@@ -63,6 +68,7 @@ export default {
   color: white;
   margin-bottom: 100px;
 }
+
 .movie-detail header {
   display: flex;
   justify-content: space-between;
@@ -70,36 +76,63 @@ export default {
   text-transform:uppercase;
 }
 .rating-box {
-  width: 100%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   margin: 5px;
   padding: 5px;
-  font-size: 25px;
+  font-size: 20px;
   color: #999
 }
 .material-symbols-outlined {
   color: darkgoldenrod;
   padding: 0;
   margin: 0;
-  font-size: 25px;
+  font-size: 35px;
   display: inline-block;
 }
 .ratings{
   display: flex;
-  align-items:flex-end;
+  align-items:flex-start;
+  justify-content: flex-start;
   justify-content: space-between;
 }
 .ratings p{
-  font-size: 25px;
-  padding: 8px;
+  font-size: 20px;
+  padding: 0px 5px 0px 5px;
 }
 .genre{
-  color: #999
+  color: #999;
+  margin-bottom: 20px;
 }
 .plot{
   font-size: 20px;
+}
+.imdb{
+  align-self: center;
+}
+
+.title-enter-from, .poster-enter-from{
+  opacity: 0;
+  transform: translateX(-300px)
+}
+.title-enter-to, .poster-enter-to{
+  opacity: 1;
+  transform: translateYX(0px)
+}
+.title-enter-active, .poster-enter-active{
+  transition: all 2s ease
+}
+.rating-enter-from{
+  opacity: 0;
+  transform: translateX(300px)
+}
+.rating-enter-to{
+  opacity: 1;
+  transform: translateX(0px)
+}
+.rating-enter-active{
+  transition: all 2s ease
 }
 </style>
