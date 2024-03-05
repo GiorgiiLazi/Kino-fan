@@ -1,6 +1,6 @@
 <template>
   <div class="main-movie-card">
-      <router-link to="movie/tt2560078"></router-link>
+      <router-link :to="'/movie/' + 'tt2560078/'">
       <img
         class="featured-img"
         src="https://m.media-amazon.com/images/M/MV5BN2FmYmM1ODctNjkzNC00MzcyLTkyOWYtZmZjNjY2ZmU3MmI3XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_FMjpg_UX1000_.jpg"
@@ -13,7 +13,8 @@
           and broke the story of the Boston Strangler.
         </p>
       </div>
-    </div>
+    </router-link>
+  </div>
 </template>
 
 <script>
@@ -32,6 +33,13 @@ export default {
   align-content: center;
   
   
+}
+.main-movie-card a{
+  position: relative;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 .featured-img {
   display: block;
