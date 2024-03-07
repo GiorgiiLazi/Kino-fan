@@ -50,7 +50,7 @@ export default {
 
     onBeforeMount(() => {
       fetch(
-        `http://www.omdbapi.com/?apikey=${env.apiKey}&i=${route.params.id}&plot=full`
+        `https://api.netlify.com/api/v1/www.omdbapi.com/?apikey=${env.apiKey}&i=${route.params.id}&plot=full`
       )
         .then((res) => res.json())
         .then((data) => (movie.value = data))

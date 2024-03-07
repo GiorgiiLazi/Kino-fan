@@ -23,7 +23,7 @@ export default {
 
     const SearchMovies = () =>{
       if(search.value != ''){
-        fetch(`http://www.omdbapi.com/?apikey=${env.apiKey}&s=${search.value.trim()}`)
+        fetch(`https://api.netlify.com/api/v1/www.omdbapi.com/?apikey=${env.apiKey}&s=${search.value.trim()}`)
         .then(res => res.json())
         .then(data => { 
           movies.value = data.Search
